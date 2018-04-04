@@ -81,6 +81,25 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Scripts\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-material.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -90,4 +109,10 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <None Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\angular-route.min.js.map" />
+    <None Include="Scripts\angular-aria.min.js.map" />
+    <None Include="Scripts\angular-animate.min.js.map" />
+  </ItemGroup>
 </Project>
