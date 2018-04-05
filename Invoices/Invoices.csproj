@@ -105,6 +105,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -121,5 +123,6 @@
     <None Include="Scripts\angular-animate.min.js.map" />
     <None Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <None Include="Scripts\angular-messages.min.js.map" />
   </ItemGroup>
 </Project>
