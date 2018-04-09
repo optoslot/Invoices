@@ -1,0 +1,52 @@
+﻿* {
+	box-sizing: border-box;
+}
+
+/*==================================================================================================
+Margin and padding
+==================================================================================================*/
+
+.in-m-0 {
+	margin: 0;
+}
+
+.in-my-0 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.in-p-0 {
+	padding: 0;
+}
+
+/*==================================================================================================
+Root layout
+==================================================================================================*/
+
+.in-navbar {
+	background-color: rgb(33,150,243);
+	color: rgb(255,255,255);
+}
+
+.in-mainbar {}
+
+.in-navbar-content,
+.in-mainbar-content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+/*==================================================================================================
+Override Material
+==================================================================================================*/
+
+md-toolbar.md-table-toolbar.md-default-theme:not(.md-menu-toolbar).md-default .md-button,
+md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default .md-button {
+	color: rgba(255,255,255,0.87);
+}
+
+md-card {
+	overflow: hidden;
+}
+
+/* EOF */

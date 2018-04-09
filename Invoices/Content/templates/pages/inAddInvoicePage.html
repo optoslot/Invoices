@@ -1,0 +1,105 @@
+<div
+		ng-controller="inAddInvoicePageCtrl as $ctrl"
+		cg-busy="{promise: $ctrl.promise, message: $ctrl.promiseMessage}">
+	<div class="in-navbar md-whiteframe-1dp">
+		<div class="in-navbar-content">
+			<div class="layout-margin in-my-0">
+				<md-toolbar class="in-my-0">
+					<div class="md-toolbar-tools in-p-0">
+						<div class="md-title">Добавить счет</div>
+					</div>
+				</md-toolbar>
+			</div>
+		</div>
+	</div>
+	<div class="in-mainbar">
+		<div class="in-mainbar-content">
+			<div>
+				<md-content layout-margin layout="column" flex>
+					<md-card>
+						<form layout-margin name="addInvoiceForm">
+							<div layout="column">
+								<md-input-container class="md-block">
+									<label>Номер счета</label>
+									<input
+											type="text"
+											name="number"
+											ng-model="$ctrl.invoice.number"
+											required
+											minlength="4"
+											maxlength="8">
+									<div ng-messages="addInvoiceForm.number.$error" multiple md-auto-hide="false">
+										<div ng-message="required">
+											Номер счета обязателен
+										</div>
+										<div ng-message="minlength">
+											Номер счета должен содержать не менее 4 символов
+										</div>
+										<div ng-message="maxlength">
+											Номер счета должен содержать не более 8 символов
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Статус счета</label>
+									<md-select
+											name="status"
+											ng-model="$ctrl.invoice.status"
+											required>
+										<md-option ng-value="status" ng-repeat="status in $ctrl.getInvoiceStatuses()">{{status | inModelInvoiceStatus}}</md-option>
+									</md-select>
+									<div ng-messages="addInvoiceForm.status.$error" multiple md-auto-hide="false">
+										<div ng-message="required">
+											Статус счета обязателен
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Сумма счета</label>
+									<input
+											type="number"
+											name="amount"
+											ng-model="$ctrl.invoice.amount"
+											required
+											min="1"
+											step="1">
+									<div ng-messages="addInvoiceForm.amount.$error" multiple md-auto-hide="false">
+										<div ng-message="required">
+											Сумма счета обязательна
+										</div>
+										<div ng-message="min">
+											Сумма счета должна быть больше 0
+										</div>
+										<div ng-message="step">
+											Сумма счета должна быть целым числом
+										</div>
+										<div ng-message="number">
+											Сумма счета должна быть целым числом
+										</div>
+									</div>
+								</md-input-container>
+								<md-input-container class="md-block">
+									<label>Способ оплаты</label>
+									<md-select
+											name="paymentMethod"
+											ng-model="$ctrl.invoice.paymentMethod"
+											required>
+										<md-option ng-value="paymentMethod" ng-repeat="paymentMethod in $ctrl.getInvoicePaymentMethods()">{{paymentMethod | inModelInvoicePaymentMethod}}</md-option>
+									</md-select>
+									<div ng-messages="addInvoiceForm.paymentMethod.$error" multiple md-auto-hide="false">
+										<div ng-message="required">
+											Способ оплаты обязателен
+										</div>
+									</div>
+								</md-input-container>
+								<md-button class="md-raised md-primary" ng-click="$ctrl.addInvoice()" ng-disabled="addInvoiceForm.$invalid">
+									Добавить счет
+								</md-button>
+							</div>
+						</form>
+					</md-card>
+				</md-content>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,121 @@
+<div
+		ng-controller="inInvoicesPageCtrl as $ctrl"
+		cg-busy="{promise: $ctrl.promise, message: $ctrl.promiseMessage}">
+	<div class="in-navbar md-whiteframe-1dp">
+		<div class="in-navbar-content">
+			<div class="layout-margin in-my-0">
+				<md-toolbar class="in-my-0">
+					<div class="md-toolbar-tools in-p-0">
+						<div class="md-title">Счета</div>
+					</div>
+				</md-toolbar>
+			</div>
+		</div>
+	</div>
+	<div class="in-mainbar">
+		<div class="in-mainbar-content">
+			<div>
+				<md-content layout-margin layout="column" flex>
+					<md-card>
+						<md-toolbar>
+							<div class="md-toolbar-tools">
+								<md-button class="md-icon-button" ng-click="refreshItems()">
+									<md-icon>refresh</md-icon>
+								</md-button>
+								<md-button class="md-icon-button" ng-click="deleteItems()" ng-disabled="!($ctrl.options.rowSelection && $ctrl.selected.length)">
+									<md-icon>delete</md-icon>
+								</md-button>
+							</div>
+						</md-toolbar>
+					</md-card>
+
+					<md-card>
+						<md-toolbar class="md-table-toolbar md-default" ng-hide="$ctrl.options.rowSelection && $ctrl.selected.length">
+							<div class="md-toolbar-tools">
+								<span>Страница счетов</span>
+								<div flex></div>
+								<md-button class="md-raised md-primary" ng-click="$ctrl.addInvoice()">
+									<md-icon>add</md-icon>
+									Добавить счет
+								</md-button>
+							</div>
+						</md-toolbar>
+
+						<md-toolbar class="md-table-toolbar alternate" ng-show="$ctrl.options.rowSelection && $ctrl.selected.length">
+							<div class="md-toolbar-tools">
+								<span>{{$ctrl.selected.length}} выбрано</span>
+							</div>
+						</md-toolbar>
+
+						<div>
+							<md-table-container>
+								<table
+										md-table
+										md-row-select="$ctrl.options.rowSelection"
+										multiple="{{$ctrl.options.multiSelect}}"
+										ng-model="$ctrl.selected"
+										md-progress="$ctrl.promise">
+									<thead
+											ng-if="!$ctrl.options.decapitate"
+											md-head
+											md-order="$ctrl.query.order"
+											md-on-reorder="reorderItems">
+										<tr md-row>
+											<th md-column md-order-by="createdAt">
+												<span>Создан</span>
+											</th>
+											<th md-column md-order-by="number">
+												<span>Номер</span>
+											</th>
+											<th md-column md-order-by="status">
+												<span>Статус</span>
+											</th>
+											<th md-column md-numeric md-order-by="amount" md-desc>
+												<span>Сумма</span>
+											</th>
+											<th md-column md-order-by="paymentMethod">
+												<span>Способ оплаты</span>
+											</th>
+										</tr>
+									</thead>
+									<tbody md-body>
+										<tr
+												md-row
+												md-select="invoice"
+												md-on-select="$ctrl.selectItem"
+												md-auto-select="$ctrl.options.autoSelect"
+												ng-disabled="false"
+												ng-repeat="invoice in $ctrl.invoices.data">
+											<td md-cell>{{invoice.createdAt | inDateTime}}</td>
+											<td md-cell>{{invoice.number}}</td>
+											<td md-cell>
+												<md-select
+														ng-model="invoice.status"
+														ng-change="$ctrl.invoiceStatusChanged(invoice)"
+														placeholder="Выберите статус">
+													<md-option ng-value="status" ng-repeat="status in $ctrl.getInvoiceStatuses()">{{status | inModelInvoiceStatus}}</md-option>
+												</md-select>
+											</td>
+											<td md-cell>{{invoice.amount}}</td>
+											<td md-cell>{{invoice.paymentMethod | inModelInvoicePaymentMethod}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</md-table-container>
+
+							<md-table-pagination
+									md-limit="$ctrl.query.limit"
+									md-limit-options="$ctrl.limitOptions"
+									md-page="$ctrl.query.page"
+									md-total="{{$ctrl.invoices.count}}"
+									md-page-select="$ctrl.options.pageSelect"
+									md-boundary-links="$ctrl.options.boundaryLinks"
+									md-on-paginate="paginateItems">
+							</md-table-pagination>
+						</div>
+					</md-card>
+				</md-content>
+			</div>
+		</div>
+	</div>
+</div>
