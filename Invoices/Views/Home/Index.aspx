@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
 <!DOCTYPE html>
 <html ng-app="invoices.app">
-	<head runat="server">
+	<head id="Head1" runat="server">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 

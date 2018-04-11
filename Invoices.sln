@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoices", "Invoices\Invoices.csproj", "{896FC597-B38D-4C45-AAD4-2A37BA8C5F5A}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoices", "Invoices\Invoices.csproj", "{01AD6CFF-3044-4375-BE5A-608BA58B7DA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{896FC597-B38D-4C45-AAD4-2A37BA8C5F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{896FC597-B38D-4C45-AAD4-2A37BA8C5F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{896FC597-B38D-4C45-AAD4-2A37BA8C5F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{896FC597-B38D-4C45-AAD4-2A37BA8C5F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01AD6CFF-3044-4375-BE5A-608BA58B7DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01AD6CFF-3044-4375-BE5A-608BA58B7DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01AD6CFF-3044-4375-BE5A-608BA58B7DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01AD6CFF-3044-4375-BE5A-608BA58B7DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
